@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+.venv
+venv/
+build/
+dist/
+*.egg-info/
+*.log
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Node.js
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env.*
+.env
+
+# Uploads
+uploads/
+
+# Frontend build
+frontend/dist/
+
+# Backend build
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.env
+backend/.venv
+backend/venv/
+backend/build/
+backend/dist/
+backend/*.egg-info/
+backend/*.log
+backend/*.sqlite3
+backend/uploads/
+
+# Misc
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+coverage.xml
+
+# Test outputs
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage.xml
+*.coveragerc
+
+# IDEs
+.idea/
+*.iml
+
+# Tailwind CSS
+*.css.map
+
+# Others
+*.orig
