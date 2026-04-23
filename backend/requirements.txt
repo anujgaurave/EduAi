@@ -18,9 +18,9 @@ groq==0.4.2
 sentence-transformers==2.2.2
 huggingface-hub==0.16.4
 scikit-learn==1.7.2
-numpy==2.0.0
+numpy==2.1.0
 faiss-cpu==1.13.2
-torch==2.2.0
+torch==2.9.0
 
 # Others
 bcrypt==4.1.1
