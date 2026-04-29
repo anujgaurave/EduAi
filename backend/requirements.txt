@@ -22,7 +22,7 @@ python-docx==0.8.11
 google-generativeai==0.5.4
 groq==0.4.2
 
-# ML / Embeddings  ← this block was the main culprit
+# ML / Embeddings (requires Python 3.11 via runtime.txt)
 torch==2.2.2
 numpy==1.26.4
 sentence-transformers==2.7.0
