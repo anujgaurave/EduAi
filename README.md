@@ -1,4 +1,4 @@
-# EduAI - AI-Powered Educational Platform
+# EduAI. - AI-Powered Educational Platform
 
 A comprehensive, full-stack educational platform that leverages artificial intelligence to provide personalized learning experiences. Built with React.js, Python Flask, MongoDB, and open-source LLMs.
 
