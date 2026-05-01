@@ -25,7 +25,12 @@ def create_app(config_name='development'):
     app.logger.setLevel(app.config['LOG_LEVEL'])
     
     # Initialize extensions
-    CORS(app, origins=app.config['CORS_ORIGINS'])
+    CORS(
+        app,
+        origins=app.config['CORS_ORIGINS'],
+        methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        allow_headers=['Content-Type', 'Authorization']
+    )
     jwt = JWTManager(app)
     
     # JWT error handlers

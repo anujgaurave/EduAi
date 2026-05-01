@@ -4,6 +4,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+def _parse_cors_origins(value):
+    origins = []
+    for origin in value.split(','):
+        cleaned = origin.strip().rstrip('/')
+        if cleaned:
+            origins.append(cleaned)
+    return origins
+
 class Config:
     """Base configuration"""
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production-12345678901234567890')
@@ -23,7 +31,12 @@ class Config:
     ALLOWED_EXTENSIONS = set(os.getenv('ALLOWED_EXTENSIONS', 'pdf,docx,txt,doc').split(','))
     
     # CORS
-    CORS_ORIGINS = os.getenv('CORS_ORIGINS', 'http://localhost:3000').split(',')
+    CORS_ORIGINS = _parse_cors_origins(
+        os.getenv(
+            'CORS_ORIGINS',
+            'http://localhost:3000,http://localhost:5173,https://edu-ai-team.vercel.app'
+        )
+    )
     
     # AI Model - Groq Mixtral
     GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
