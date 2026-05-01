@@ -1,40 +1,40 @@
 # Web
-Flask==2.3.3
-Flask-CORS==4.0.0
-Flask-JWT-Extended==4.5.2
-Werkzeug==2.3.7
+Flask
+Flask-CORS
+Flask-JWT-Extended
+Werkzeug
 
 # Database
-pymongo==4.6.0
+pymongo
 
 # Utilities
-python-dotenv==1.0.0
-cryptography==42.0.8
-requests==2.31.0
-bcrypt==4.1.1
-aiohttp==3.9.3
+python-dotenv
+cryptography
+requests
+bcrypt
+aiohttp
 
 # Document parsing
-PyPDF2==3.0.1
-python-docx==0.8.11
+PyPDF2
+python-docx
 
 # AI APIs
-google-generativeai==0.5.4
-groq==0.4.2
+google-generativeai
+groq
 
-# ML / Embeddings (requires Python 3.11 via runtime.txt)
-torch==2.2.2
-numpy==1.26.4
-sentence-transformers==2.7.0
-huggingface-hub==0.23.4
-transformers==4.41.2
-faiss-cpu==1.7.4
-scikit-learn==1.4.2
+# ML / Embeddings
+torch
+numpy
+sentence-transformers
+huggingface-hub
+transformers
+faiss-cpu
+scikit-learn
 
 # LangChain
-langchain==0.1.20
-pydantic==1.10.13
+langchain
+pydantic
 
 # Testing
-pytest==7.4.0
-pytest-flask==1.2.0
+pytest
+pytest-flask
