@@ -1,6 +1,4 @@
 import numpy as np
-from sentence_transformers import SentenceTransformer
-import faiss
 import json
 import os
 import logging
@@ -17,10 +15,18 @@ class VectorStore:
         self.embeddings_file = 'embeddings.json'
         self.index_file = 'faiss_index.bin'
         self.model = None  # Lazy-load on first use
+        self._faiss_module = None
         
         if use_faiss:
-            self.index = faiss.IndexFlatL2(dimension)
-            self.documents = []
+            try:
+                import faiss
+                self._faiss_module = faiss
+                self.index = faiss.IndexFlatL2(dimension)
+                self.documents = []
+            except Exception as e:
+                logger.warning(f"FAISS unavailable, falling back to in-memory store: {e}")
+                self.use_faiss = False
+                self.embeddings_dict = {}
         else:
             self.embeddings_dict = {}
         
@@ -29,6 +35,7 @@ class VectorStore:
     def _get_model(self):
         """Lazy-load the sentence transformer model"""
         if self.model is None:
+            from sentence_transformers import SentenceTransformer
             logger.info("Loading SentenceTransformer model 'all-MiniLM-L6-v2'...")
             self.model = SentenceTransformer('all-MiniLM-L6-v2')
             logger.info("Model loaded successfully")
@@ -38,7 +45,7 @@ class VectorStore:
         """Load existing embeddings from disk"""
         try:
             if self.use_faiss and os.path.exists(self.index_file):
-                self.index = faiss.read_index(self.index_file)
+                self.index = self._faiss_module.read_index(self.index_file)
                 logger.info("Loaded FAISS index from disk")
             
             if os.path.exists(self.embeddings_file):
@@ -120,7 +127,7 @@ class VectorStore:
         """Persist vector store to disk"""
         try:
             if self.use_faiss:
-                faiss.write_index(self.index, self.index_file)
+                self._faiss_module.write_index(self.index, self.index_file)
                 with open(self.embeddings_file, 'w') as f:
                     json.dump({'documents': self.documents}, f)
             else:
@@ -146,7 +153,7 @@ class VectorStore:
     def clear(self):
         """Clear all embeddings"""
         if self.use_faiss:
-            self.index = faiss.IndexFlatL2(self.dimension)
+            self.index = self._faiss_module.IndexFlatL2(self.dimension)
             self.documents = []
         else:
             self.embeddings_dict = {}

@@ -1,44 +1,4 @@
-# Web
-Flask
-Flask-CORS
-Flask-JWT-Extended
-Werkzeug
+-r requirements-web.txt
 
-# Database
-pymongo
-dnspython
-
-# Utilities
-python-dotenv
-cryptography
-requests
-bcrypt
-aiohttp
-
-# Document parsing
-PyPDF2
-python-docx
-
-# AI APIs
-google-generativeai
-groq
-
-# ML / Embeddings
-torch
-numpy
-sentence-transformers
-huggingface-hub
-transformers
-faiss-cpu
-scikit-learn
-
-# LangChain
-langchain
-pydantic
-
-# Testing
-pytest
-pytest-flask
-
-gunicorn
-eventlet
+# Install this only on machines/jobs where local embeddings are required:
+# -r requirements-ml.txt

@@ -1,0 +1,31 @@
+# Web
+Flask
+Flask-CORS
+Flask-JWT-Extended
+Werkzeug
+
+# Database
+pymongo
+dnspython
+
+# Utilities
+python-dotenv
+cryptography
+requests
+bcrypt
+aiohttp
+
+# Document parsing
+PyPDF2
+python-docx
+
+# AI APIs
+google-generativeai
+groq
+
+# Runtime essentials
+numpy
+langchain
+pydantic
+gunicorn
+eventlet

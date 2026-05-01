@@ -1,0 +1,7 @@
+# Heavy ML / Embeddings (install only where needed)
+torch
+sentence-transformers
+huggingface-hub
+transformers
+faiss-cpu
+scikit-learn
