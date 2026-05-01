@@ -38,3 +38,6 @@ pydantic
 # Testing
 pytest
 pytest-flask
+
+gunicorn
+eventlet
