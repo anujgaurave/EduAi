@@ -6,6 +6,7 @@ Werkzeug
 
 # Database
 pymongo
+dnspython
 
 # Utilities
 python-dotenv
